@@ -1,0 +1,3 @@
+[console_scripts]
+python-demo-web = app.main:main
+upload-file = test2:main

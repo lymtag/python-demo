@@ -1,0 +1,56 @@
+Metadata-Version: 2.4
+Name: python-demo-web
+Version: 0.1.0
+Summary: A standard Python FastAPI web project for upload client workflows.
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.115.0
+Requires-Dist: uvicorn[standard]>=0.30.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: python-multipart>=0.0.9
+Provides-Extra: dev
+Requires-Dist: pytest<8.0.0,>=7.4.0; extra == "dev"
+Requires-Dist: httpx>=0.27.0; extra == "dev"
+
+# Python Demo Web
+
+A standard Python FastAPI web project for file-upload workflows.
+
+## Project Layout
+
+```text
+app/
+  api/routes/      HTTP route handlers
+  core/            settings and application configuration
+  schemas/         request and response models
+  services/        reusable business logic and external adapters
+tests/             pytest test suite
+test2.py           backward-compatible CLI entry
+```
+
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e ".[dev]"
+```
+
+## Run
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Health check:
+
+```bash
+curl http://127.0.0.1:8000/api/health
+```
+
+## Test
+
+```bash
+python3 -m pytest
+```
+
